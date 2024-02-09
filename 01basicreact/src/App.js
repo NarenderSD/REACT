@@ -1,8 +1,11 @@
-
+import Chai from "./Chai";
 
 function App() {
   return (
-    <h1>Chai k Sath m React ka Code || Narender</h1>
+    <>
+    <Chai/>
+    <h1>Chai k Sath m React ka Code  || Narender</h1>
+    </>
   );
 }
 
