@@ -1,15 +1,18 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
+
 
 
 function App() {
-  const [length, setLength] = useState(4)
+  const [length, setLength] = useState(8)
   const [numberAllowed, setNumberAllowed] = useState(false);
-  const [ charAllowed, setCharAllowed] = useState(false)
+  const [charAllowed, setCharAllowed] = useState(false)
   const [password, setPassword] = useState("")
 
+  //useRef hook
+  const passwordRef = useRef(null)
 
-const passwordGenerator = useCallback(() => {
-  let pass = ""
+  const passwordGenerator = useCallback(() => {
+    let pass = ""
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if (numberAllowed) str += "0123456789"
     if (charAllowed) str += "!@#$%^&*-_+=[]{}~`"
@@ -22,11 +25,16 @@ const passwordGenerator = useCallback(() => {
 
     setPassword(pass)
 
-}, length, numberAllowed, charAllowed, setPassword)
 
+  }, [length, numberAllowed, charAllowed, setPassword])
+
+  
+  useEffect(() => {
+    passwordGenerator()
+  }, [length, numberAllowed, charAllowed, passwordGenerator])
   return (
-    <>
-      <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
+    
+    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-3 my-8 bg-gray-800 text-orange-500">
       <h1 className='text-white text-center my-3'>Password generator</h1>
     <div className="flex shadow rounded-lg overflow-hidden mb-4">
         <input
@@ -47,7 +55,7 @@ const passwordGenerator = useCallback(() => {
       <div className='flex items-center gap-x-1'>
         <input 
         type="range"
-        min={6}
+        min={4}
         max={100}
         value={length}
          className='cursor-pointer'
@@ -79,7 +87,7 @@ const passwordGenerator = useCallback(() => {
       </div>
     </div>
 </div>
-    </>
+    
   )
 }
 
