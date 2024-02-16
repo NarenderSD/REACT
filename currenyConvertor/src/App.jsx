@@ -5,8 +5,8 @@ import './App.css'
 
 function App() {                // hooks
   const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState("usd")
-  const [to, setTo] = useState("inr")
+  const [from, setFrom] = useState("inr")
+  const [to, setTo] = useState("usd")
   const [convertedAmount, setConvertedAmount] = useState(0)
 
 
@@ -30,7 +30,8 @@ function App() {                // hooks
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
-            backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
+        
+            backgroundImage: `url('https://chargebacks911.com/wp-content/uploads/2022/09/Dynamic-Currency-Conversion-blog.gif')`,
         }}
     >
         <div className="w-full">
