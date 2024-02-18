@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import {TodoProvider} from './contexts'
 import './App.css'
+import TodoForm from './components/TodoForm'
+import TodoItem from './components/TodoItem'
 
 function App() {
   const [todos, setTodos] = useState([])
@@ -28,10 +29,6 @@ function App() {
         completed: !prevTodo.completed } : prevTodo))
   }
 
-
-
-// local Storage k liye
-
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))
 
@@ -43,6 +40,8 @@ function App() {
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos))
   }, [todos])
+  
+
 
 
   return (
