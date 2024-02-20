@@ -1,5 +1,15 @@
 # React + Vite
 
+
+
+npm i @reduxjs/toolkit 
+react-redux 
+rect-router-dom 
+appwrite 
+@tinymce/tinymce-react 
+html-react-parser 
+react-hook-form
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
